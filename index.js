@@ -1,13 +1,13 @@
-require('dotenv').config()
-const Converter = new (require('./src/converter'))
-const Function = new (require('./src/functions'))
-const Scraper = new (require('./src/scraper'))
-const Levelling = require('./src/levelling')
-const CloudDBAdapter = require('./src/cloudDBAdapter')
+require("dotenv").config();
+const Plugins = require("./src/plugins");
+const { Color } = require("./src/color");
+const { MONGODB } = require("./src/mongo");
+const Function = new (require("./src/functions"))();
+const Levelling = require("./src/levelling");
 module.exports = class Component {
-   CloudDBAdapter = CloudDBAdapter
-   Converter = Converter
-   Function = Function
-   levelling = Levelling
-   Scraper = Scraper
-}
+  Plugins = Plugins;
+  Color = Color;
+  MongoDB = MONGODB;
+  Function = Function;
+  levelling = Levelling;
+};
